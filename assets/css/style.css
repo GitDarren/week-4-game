@@ -20,3 +20,9 @@ header  {
 .backgroundImage    {
     width: 100%;
 }
+
+h1  {
+  font-size: 32px;
+  font-weight: 700px;
+  line-height: 75px; 
+}

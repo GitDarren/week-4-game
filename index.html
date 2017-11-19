@@ -9,9 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Indie+Flower" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
-   <!-- Stylesheets for Game -->
+    <!-- Stylesheets for Game -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -25,35 +27,31 @@
         <h2>Game Rules</h2>
         <p>Everyone in the Peanuts gang, even Snoopy and Woodstock can't wait for school to be over.</p>
         <p>You will be given a random number of days at the start of the game.</p>
-        <p>There are four Peanuts characters to choose from. By clicking on a Peanuts character you will add a specific amount
-            of days to your total days left in school.</p>
-        <p>You win the game by matching your total days left in school with the number of days left, you lose the game if your
-            total days goes above the number of days left.</p>
+        <p>There are four Peanuts characters to choose from. By clicking on a Peanuts character you will subtract a specific amount
+            of days from your total days left in school.</p>
+        <p>You win the game by getting the days left in School to Zero!</p>
         <p>The value of Peanuts character is hidden from you until you click on them.</p>
         <p>Each time when the game starts, the game will change the values of each Peanuts character.</p>
-    </div> <!--End of gameRules -->
-
-    <div class "daysSection">
-        <h3>Days Left in School: </h3>
-        <div id="daysLeft"></div>
     </div>
+    <!--End of gameRules -->
+
+
+    <!-- <div id="daysLeft">Something to Find This</div> -->
+<h1>Days left in school: <span id="daysLeft">xxxxxx</span></h1>
 
     <div class="gameTotals">
-        <p id="results"></p>
         <p id="wins"></p>
         <p id="loses"></p>
     </div>
 
-    <div class="score">
-        <h4>Your total number of days left are:</h4>
-        <div id="daysGuessed"></div>
-    </div>
+    <div id="daysGuessed"></div>
+
 
     <div id="peanutCharacters">
-        <img class="characters charliebrown" src="assets/images/charlie-brown.png" alt="Charle Brown">
-        <img class="characters lucy" src="assets/images/lucy.png" alt="Lucy">
-        <img class="characters snoopy" src="assets/images/snoopy.png" alt="Snoopy">
-        <img class="characters linus" src="assets/images/linus.png" alt="Linus">
+        <img class="characters" id="charliebrown" src="assets/images/charlie-brown.png" alt="Charle Brown">
+        <img class="characters" id="lucy" src="assets/images/lucy.png" alt="Lucy">
+        <img class="characters" id="snoopy" src="assets/images/snoopy.png" alt="Snoopy">
+        <img class="characters" id="linus" src="assets/images/linus.png" alt="Linus">
     </div>
 
 
