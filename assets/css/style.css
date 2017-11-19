@@ -1,0 +1,22 @@
+body    {
+    box-sizing: border-box;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Gloria Hallelujah', cursive;
+    background-image: url(../images/2015_the_peanuts_movie-HD.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+header  {
+    font-family: 'Indie Flower', cursive;
+    font-size: x-large;
+    font-weight: 700;
+}
+
+.characters   {
+    height: 150px;
+}
+
+.backgroundImage    {
+    width: 100%;
+}
