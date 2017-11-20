@@ -26,3 +26,7 @@ h1  {
   font-weight: 700px;
   line-height: 75px; 
 }
+
+.characters:hover { 
+    background-color: lightgoldenrodyellow;
+}
