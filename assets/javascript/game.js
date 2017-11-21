@@ -10,10 +10,10 @@
 //Variables for keeping track of the game
 var wins = 0;
 var loses = 0;
-var total; 
+var total = 0;
 
 
-//Using document.ready to load the game!//
+//Using document.ready to load the game!
 $(document).ready(function () {
     console.log("ready!");
 
@@ -25,7 +25,7 @@ $(document).ready(function () {
     console.log(total);
 
 
-    //loadGame sets up the game with days left total, wins totals, loses totals, 
+    //loadGame sets up the game with days left total, wins totals, loses totals. 
     function loadGame() {
 
         $("#daysLeft").html(total);
@@ -34,25 +34,26 @@ $(document).ready(function () {
         $("#loses").html('<h1>' + "Loses: " + loses + '</h1>');
         console.log("here are my " + loses + " loses");
 
-        //Setting up the variables for the the four Peanuts Characters!//
+
+    }
+
+
+    //Starts the game on click of any of the peanuts characters
+    function playGame() {
+
+        //Setting up the variables for the the four Peanuts Characters!
         var charliebrownVal = Math.floor(Math.random() * 11) + 1;
         var lucyVal = Math.floor(Math.random() * 11) + 1;
         var snoopyVal = Math.floor(Math.random() * 11) + 1;
         var linusVal = Math.floor(Math.random() * 11) + 1;
 
-        //Just checking to make sure the characters have values//
+        //Just checking to make sure the characters have values
         console.log("Charlie Brown's Value " + charliebrownVal);
         console.log("Lucys's Value " + lucyVal);
         console.log("Snoopy's Value " + snoopyVal);
         console.log("Linus's Value " + linusVal);
-    }
-
-    //Starts the game on click of any of the peanuts characters//
-    function playGame() {
 
         //Uses "this" to assign the click on each character.  
-        //However due to some scope issue, the console is showing the total number dropping after every click...
-        //But the total on the DOM is not reflecting the total change 
         $('.characters').on("click", function () {
             var thisId = $(this).attr('id');
             if (thisId === "charliebrown") {
@@ -83,31 +84,37 @@ $(document).ready(function () {
                 alert("Something Went Way Wrong");
             }
         });
+    }
 
-        loadGame();
-        playGame();
-        
-        //Checks the game to see if the user wins if the total equals Zero and tells the user they lose if they below Zero.  
-        //Still not working correct because the user can keep clicking characters and game keeps running. Not updating the Wins or Loses count on the DOM. 
-        function checkWin() {
-            if (total > 0) {
-                return;
+    loadGame();
+    playGame();
+
+    // Checks the game to see if the user wins if the total equals Zero and tells the user they lose if they below Zero.  
+    // Still not working correct because the user can keep clicking characters and game keeps running. Does update the wins and loses, but doesn't reset the Days Left Number.
+    function checkWin() {
+        if (total > 0) {
+            return;
+        } else {
+            if (total === 0) {
+                wins++;
+                $('#wins').html("Wins: " + wins);
+                console.log("You Win!");
+                alert("You Win!");
+                // loadGame();
+                reset();
+
             } else {
-                if (total === 0) {
-                    wins++;
-                    $('#wins').html("Wins: " + wins);
-                    console.log("You Win!");
-                    alert("You Win!");
-                    loadGame();
+                loses++;
+                console.log("You Lose!");
+                $('#loses').html("Loses: " + loses);
+                // loadGame();
+                reset();
 
-                } else {
-                    loses++;
-                    console.log("You Lose!");
-                    $('#loses').html("Loses: " + loses);
-                    loadGame();
-
-                }
             }
         }
+    }
+
+    function reset()  {
+        loadGame();
     }
 });
