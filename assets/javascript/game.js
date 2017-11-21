@@ -113,8 +113,21 @@ $(document).ready(function () {
             }
         }
     }
-
+    //Reset function is not working correctly.  Not sure why.  Taking a brain. 
     function reset()  {
-        loadGame();
+        console.log("this shit is running!");
+        function total(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        total = total(19, 120);
+        $("#daysLeft").html(total);
+        console.log(total);
+        charliebrownVal = Math.floor(Math.random() * 11) + 1;
+        lucyVal = Math.floor(Math.random() * 11) + 1;
+        snoopyVal = Math.floor(Math.random() * 11) + 1;
+        linusVal = Math.floor(Math.random() * 11) + 1;
+        // loadGame();
+        // playGame();
+     
     }
 });
