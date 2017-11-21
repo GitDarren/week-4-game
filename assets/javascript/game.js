@@ -60,26 +60,26 @@ $(document).ready(function () {
                 total = total - charliebrownVal;
                 console.log(total);
                 console.log(charliebrownVal);
-                checkWin();
                 $('#daysLeft').html(total);
+                checkWin();
             } else if (thisId === "lucy") {
                 total = total - lucyVal;
                 console.log(total);
                 console.log(lucyVal);
-                checkWin();
                 $('#daysLeft').html(total);
+                checkWin();
             } else if (thisId === "snoopy") {
                 total = total - snoopyVal;
                 console.log(total);
                 console.log(snoopyVal);
-                checkWin();
                 $('#daysLeft').html(total);
+                checkWin();
             } else if (thisId === "linus") {
                 total = total - linusVal;
                 console.log(total);
                 console.log(linusVal);
-                checkWin();
                 $('#daysLeft').html(total);
+                checkWin();
             } else {
                 alert("Something Went Way Wrong");
             }
@@ -100,34 +100,41 @@ $(document).ready(function () {
                 $('#wins').html("Wins: " + wins);
                 console.log("You Win!");
                 alert("You Win!");
-                // loadGame();
                 reset();
 
             } else {
                 loses++;
                 console.log("You Lose!");
                 $('#loses').html("Loses: " + loses);
-                // loadGame();
+                alert("You Didn't Win, but Please Play Again");
                 reset();
 
             }
         }
     }
-    //Reset function is not working correctly.  Not sure why.  Taking a brain. 
+    //Reset function is not working correctly.  Not sure why.  Taking a break. 
     function reset()  {
         console.log("this shit is running!");
         function total(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
         total = total(19, 120);
-        $("#daysLeft").html(total);
-        console.log(total);
+        $("#daysLeft").html(total);//This is happening now! YAY!
+        console.log("This is my new " + total);
         charliebrownVal = Math.floor(Math.random() * 11) + 1;
         lucyVal = Math.floor(Math.random() * 11) + 1;
         snoopyVal = Math.floor(Math.random() * 11) + 1;
         linusVal = Math.floor(Math.random() * 11) + 1;
+
+        console.log("Charlie Brown's New Value " + charliebrownVal);
+        console.log("Lucys's New Value " + lucyVal);
+        console.log("Snoopy's New Value " + snoopyVal);
+        console.log("Linus's New Value " + linusVal);
+
+        //All the character values are regenerating after a win or loss, however they keep regenerating on clicks. 
+        //This changes the character values and compounds the "loss" total.  
         // loadGame();
-        // playGame();
+        // loadGame();
      
     }
 });
