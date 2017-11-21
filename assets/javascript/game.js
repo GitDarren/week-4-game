@@ -15,12 +15,43 @@ var charliebrownVal;
 var lucyVal;
 var snoopyVal;
 var linusVal;
+var context;
 
 
 
 //Using document.ready to load the game!
 $(document).ready(function () {
     console.log("ready!");
+    
+    $('#kidsCharacters, #adultsCharacters').hide();
+
+    $('#kids, #adults').on("click", function() {
+        reset($(this).attr('id'))
+    });
+
+    function adultsGame() {
+        loadGame();
+        playGame();
+        $('#kidsCharacters, #adultsCharacters').show();
+    }
+
+    function kidsGame() {
+        total = totalizer(9, 20);
+        console.log(total);
+        displaytoDom();
+        snoopyVal = Math.floor(Math.random() * 6) + 1;
+        linusVal = Math.floor(Math.random() * 6) + 1;
+        $('#kidsCharacters').show();
+    }
+
+    function displaytoDom() {
+        $("#daysLeft").html(total);
+        $("#wins").html('<h1>' + "Wins: " + wins + '</h1>');
+        console.log("here are my " + wins + " wins");
+        $("#loses").html('<h1>' + "Loses: " + loses + '</h1>');
+        console.log("here are my " + loses + " loses");
+    }
+
 
     //Need to set total as a global variable so that both loadGame and playGame can use it//
     function totalizer(min, max) {
@@ -65,12 +96,7 @@ $(document).ready(function () {
 
         total = totalizer(19, 120);
         console.log(total);
-
-        $("#daysLeft").html(total);
-        $("#wins").html('<h1>' + "Wins: " + wins + '</h1>');
-        console.log("here are my " + wins + " wins");
-        $("#loses").html('<h1>' + "Loses: " + loses + '</h1>');
-        console.log("here are my " + loses + " loses");
+        displaytoDom();
     }
 
 
@@ -90,8 +116,6 @@ $(document).ready(function () {
         console.log("Linus's Value " + linusVal);
     }
 
-    loadGame();
-    playGame();
 
     function checkWin() {
         if (total > 0) {
@@ -102,9 +126,8 @@ $(document).ready(function () {
             $('#wins').html("Wins: " + wins);
             console.log("You Win!");
             alert("You Win!");
-            // reset();
-            loadGame();
-            playGame();
+            reset(context);
+            
 
 
         } else if
@@ -113,11 +136,22 @@ $(document).ready(function () {
             loses++;
             $('#loses').html("Loses: " + loses);
             alert("You Didn't Win, but Please Play Again")
-            // reset();
-            loadGame();
-            playGame();
+            reset(context);
         }
     }
 
- 
+    function reset(that)    {
+
+        switch (that) {
+            case "kids":
+                kidsGame();
+                context = "kids";
+                break;
+            case "adults":
+                adultsGame();
+                context = "adults";
+                break;
+        } 
+    }
+
 });
