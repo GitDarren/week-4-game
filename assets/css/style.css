@@ -2,6 +2,7 @@ body    {
     box-sizing: border-box;
     font-family: 'Indie Flower', cursive;
     font-family: 'Gloria Hallelujah', cursive;
+    background-color: #f8b61a;
     background-image: url(../images/2015_the_peanuts_movie-HD.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -11,6 +12,7 @@ header  {
     font-family: 'Indie Flower', cursive;
     font-size: x-large;
     font-weight: 700;
+    text-align: center;
 }
 
 .characters   {
@@ -29,4 +31,9 @@ h1  {
 
 .characters:hover { 
     background-color: rgb(196, 147, 14);
+}
+
+.btn   {
+    background-color: #f8b61a;
+    border-color: #b9221b;
 }
