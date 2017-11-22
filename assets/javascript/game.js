@@ -3,7 +3,7 @@
 
 //This game is a variation on the Crystals Game. I changed the game so that users' goal is to reduce the randomly generated number
 //by clicking one of the Peanuts characters to get the total to Zero "Days Left".  
-//I've set up all the variables needed for the game 
+
 
 
 
@@ -23,18 +23,19 @@ var context;
 $(document).ready(function () {
     console.log("ready!");
     
+    //Adding functionality so that I can provide two different games with two different difficulty levels.  
     $('#kidsCharacters, #adultsCharacters').hide();
 
     $('#kids, #adults').on("click", function() {
         reset($(this).attr('id'))
     });
-
+    //Adults version has all four characters to choose from plus the full range of numbers to guess from. 
     function adultsGame() {
         loadGame();
         playGame();
         $('#kidsCharacters, #adultsCharacters').show();
     }
-
+    //Kids version has only two characters to choose from with much smaller total number and smaller character values. 
     function kidsGame() {
         total = totalizer(9, 20);
         console.log(total);
@@ -43,7 +44,7 @@ $(document).ready(function () {
         linusVal = Math.floor(Math.random() * 6) + 1;
         $('#kidsCharacters').show();
     }
-
+    //Created this function for everything that is pushed to the DOM
     function displaytoDom() {
         $("#daysLeft").html(total);
         $("#wins").html('<h1>' + "Wins: " + wins + '</h1>');
@@ -116,7 +117,6 @@ $(document).ready(function () {
         console.log("Linus's Value " + linusVal);
     }
 
-
     function checkWin() {
         if (total > 0) {
             return;
@@ -127,8 +127,6 @@ $(document).ready(function () {
             console.log("You Win!");
             alert("You Win!");
             reset(context);
-            
-
 
         } else if
                 (total < 0) {
@@ -139,7 +137,8 @@ $(document).ready(function () {
             reset(context);
         }
     }
-
+    //Use of switch, case, and break were by the recommendation of my tutor.  This allowed me to create two versions of the game
+    //and utilize the reset function to indicate which game the user is playing.  
     function reset(that)    {
 
         switch (that) {
